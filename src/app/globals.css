@@ -12,6 +12,15 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
   }
+  
+  /* Remove focus outline globally */
+  *:focus {
+    outline: none;
+  }
+  
+  *:focus-visible {
+    outline: none;
+  }
 
   body {
     @apply bg-dark-950 text-dark-50;
@@ -61,6 +70,9 @@
   .scrollbar-thin::-webkit-scrollbar-thumb {
     background: rgba(56, 189, 248, 0.2);
     border-radius: 2px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 189, 248, 0.3);
   }
 }
 

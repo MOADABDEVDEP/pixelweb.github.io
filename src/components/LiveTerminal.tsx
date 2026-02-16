@@ -59,15 +59,19 @@ const asciiArt = [
 
 const mobileSuccessMessage = [
   '',
-  '',
-  '',
-  '     ✓ All Services Ready',
-  '',
-  '   PIXELSTACK',
-  '   Enterprise DXP',
-  '',
-  '   45+ Microservices',
-  '   🚀 Production Ready',
+  '  +---[PIXELSTACK]---+',
+  '  |                  |',
+  '  |   ╔═══╗ ╔═══╗    |',
+  '  |   ║ ✓ ║ ║ ✓ ║    |',
+  '  |   ╚═╦═╝ ╚═╦═╝    |',
+  '  |     ║     ║      |',
+  '  |   ╔═╩═╗ ╔═╩═╗    |',
+  '  |   ║ ✓ ║ ║ ✓ ║    |',
+  '  |   ╚═══╝ ╚═══╝    |',
+  '  |                  |',
+  '  |  45 Services ✓   |',
+  '  |                  |',
+  '  +----[READY]-------+',
   '',
 ]
 
@@ -135,20 +139,20 @@ export default function LiveTerminal() {
       {/* Terminal Body */}
       <div 
         ref={scrollRef}
-        className="p-3 sm:p-4 lg:p-6 font-mono text-[11px] sm:text-sm lg:text-xs h-[260px] sm:h-[340px] overflow-y-auto scrollbar-thin"
+        className="p-3 sm:p-4 lg:p-6 font-mono text-[11px] sm:text-sm lg:text-xs h-[260px] sm:h-[340px] overflow-y-auto scrollbar-thin focus:outline-none"
       >
         {showAsciiArt ? (
           // Show ASCII Art (mobile: simple message, desktop: full ASCII)
           <>
             {/* Mobile version - simple text */}
-            <div className="block sm:hidden text-primary-400 leading-relaxed pt-8 text-center">
+            <div className="block sm:hidden text-primary-400 leading-tight pt-8 text-center">
               {mobileSuccessMessage.map((line, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.08 }}
-                  className="text-sm font-semibold"
+                  className="text-xs font-mono whitespace-pre"
                 >
                   {line}
                 </motion.div>
