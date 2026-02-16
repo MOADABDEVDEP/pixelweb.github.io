@@ -5,6 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  basePath: '/pixelweb',
+  assetPrefix: '/pixelweb/',
 }
 
 module.exports = nextConfig
