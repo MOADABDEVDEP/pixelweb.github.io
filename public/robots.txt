@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://matinsanei.github.io/Pixelstack/sitemap.xml
