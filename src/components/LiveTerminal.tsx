@@ -103,7 +103,7 @@ export default function LiveTerminal() {
       className="relative glass-effect rounded-xl overflow-hidden border border-dark-700/50 shadow-2xl shadow-primary-500/5"
     >
       {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-3 sm:px-4 lg:px-0.5 py-2.5 sm:py-3 bg-dark-900/80 border-b border-dark-700/50">
+      <div className="flex items-center gap-2 px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3 bg-dark-900/80 border-b border-dark-700/50">
         <div className="flex gap-1.5 sm:gap-2">
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
           <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80" />
@@ -121,18 +121,18 @@ export default function LiveTerminal() {
       {/* Terminal Body */}
       <div 
         ref={scrollRef}
-        className="p-3 sm:p-4 lg:p-0.5 font-mono text-[11px] sm:text-sm lg:text-xs h-[260px] sm:h-[340px] overflow-y-auto scrollbar-thin"
+        className="p-3 sm:p-4 lg:p-6 font-mono text-[11px] sm:text-sm lg:text-xs h-[260px] sm:h-[340px] overflow-y-auto scrollbar-thin"
       >
         {showAsciiArt ? (
           // Show ASCII Art
-          <div className="text-primary-400 leading-tight pt-8">
+          <div className="text-primary-400 leading-tight pt-4 sm:pt-6 lg:pt-8 overflow-x-auto">
             {asciiArt.map((line, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="whitespace-pre"
+                className="whitespace-pre text-[8px] sm:text-[10px] lg:text-xs"
               >
                 {line}
               </motion.div>
@@ -142,7 +142,7 @@ export default function LiveTerminal() {
           // Show typing animation
           <>
             {terminalLines.slice(0, visibleLines).map((line, index) => (
-              <div key={index} className={`${getLineColor(line.type)} leading-relaxed`}>
+              <div key={index} className={`${getLineColor(line.type)} leading-relaxed whitespace-pre-wrap break-words`}>
                 {line.text}
               </div>
             ))}
