@@ -59,19 +59,19 @@ const asciiArt = [
 
 const mobileSuccessMessage = [
   '',
-  '  +---[PIXELSTACK]---+',
-  '  |                  |',
-  '  |   ╔═══╗ ╔═══╗    |',
-  '  |   ║ ✓ ║ ║ ✓ ║    |',
-  '  |   ╚═╦═╝ ╚═╦═╝    |',
-  '  |     ║     ║      |',
-  '  |   ╔═╩═╗ ╔═╩═╗    |',
-  '  |   ║ ✓ ║ ║ ✓ ║    |',
-  '  |   ╚═══╝ ╚═══╝    |',
-  '  |                  |',
-  '  |  45 Services ✓   |',
-  '  |                  |',
-  '  +----[READY]-------+',
+  ' +--[PIXELSTACK]--+',
+  ' |    .o=*.o.     |',
+  ' |   . =oB +      |',
+  ' |    o.O.* .     |',
+  ' |   ..o.B +      |',
+  ' |    .+.S.o      |',
+  ' |   . .o.+.      |',
+  ' |    E ..o.      |',
+  ' |     . .o.      |',
+  ' |      .o..      |',
+  ' +----[45 SVC]----+',
+  '',
+  '   All systems ready',
   '',
 ]
 
@@ -145,18 +145,20 @@ export default function LiveTerminal() {
           // Show ASCII Art (mobile: simple message, desktop: full ASCII)
           <>
             {/* Mobile version - simple text */}
-            <div className="block sm:hidden text-primary-400 leading-tight pt-8 text-center">
-              {mobileSuccessMessage.map((line, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.08 }}
-                  className="text-xs font-mono whitespace-pre"
-                >
-                  {line}
-                </motion.div>
-              ))}
+            <div className="block sm:hidden text-primary-400 leading-[1.3] pt-8 flex justify-center">
+              <div className="inline-block text-left">
+                {mobileSuccessMessage.map((line, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.08 }}
+                    className="text-[11px] font-mono whitespace-pre"
+                  >
+                    {line}
+                  </motion.div>
+                ))}
+              </div>
             </div>
             
             {/* Desktop version - full ASCII art */}
