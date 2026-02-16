@@ -57,6 +57,20 @@ const asciiArt = [
   '              🚀 Production Ready 🚀'
 ]
 
+const mobileSuccessMessage = [
+  '',
+  '',
+  '',
+  '     ✓ All Services Ready',
+  '',
+  '   PIXELSTACK',
+  '   Enterprise DXP',
+  '',
+  '   45+ Microservices',
+  '   🚀 Production Ready',
+  '',
+]
+
 export default function LiveTerminal() {
   const [visibleLines, setVisibleLines] = useState(0)
   const [showAsciiArt, setShowAsciiArt] = useState(false)
@@ -124,20 +138,38 @@ export default function LiveTerminal() {
         className="p-3 sm:p-4 lg:p-6 font-mono text-[11px] sm:text-sm lg:text-xs h-[260px] sm:h-[340px] overflow-y-auto scrollbar-thin"
       >
         {showAsciiArt ? (
-          // Show ASCII Art
-          <div className="text-primary-400 leading-tight pt-4 sm:pt-6 lg:pt-8 overflow-x-auto">
-            {asciiArt.map((line, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="whitespace-pre text-[8px] sm:text-[10px] lg:text-xs"
-              >
-                {line}
-              </motion.div>
-            ))}
-          </div>
+          // Show ASCII Art (mobile: simple message, desktop: full ASCII)
+          <>
+            {/* Mobile version - simple text */}
+            <div className="block sm:hidden text-primary-400 leading-relaxed pt-8 text-center">
+              {mobileSuccessMessage.map((line, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.08 }}
+                  className="text-sm font-semibold"
+                >
+                  {line}
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Desktop version - full ASCII art */}
+            <div className="hidden sm:block text-primary-400 leading-tight pt-4 sm:pt-6 lg:pt-8">
+              {asciiArt.map((line, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="whitespace-pre text-[10px] lg:text-xs"
+                >
+                  {line}
+                </motion.div>
+              ))}
+            </div>
+          </>
         ) : (
           // Show typing animation
           <>
